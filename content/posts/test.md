@@ -24,14 +24,18 @@ function ProfilePage(props) {
 }
 ```
 
-```csharp
+Here is some text.
+
+```c#
 public void Main(string[] args)
 {
     var justin = "stark";
 }
 ```
 
-```csharp {hl_lines=[3]}
+Here is more text.
+
+```c# {hl_lines=[3]}
 public Dictionary<string, List<string>> GetAllAttributes(string attributesXml)
 {
     return _productAttributeParser.ParseProductAttributeMappings(attributesXml)
