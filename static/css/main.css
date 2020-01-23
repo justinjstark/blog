@@ -1,13 +1,13 @@
 body {
-  font: 100%/1.75 'Merriweather', 'Georgia', serif;
+  font: 100%/1.75 'Merriweather', 'Georgia', sans-serif;
   color: #ddd;
   background-color: #151515;
 }
 
 h1, h2, h3
 {
-  font-family: 'Paprika', sans-serif;
-  /*font-weight: 700;*/
+  font-family: 'Paprika', serif;
+  font-weight: 400;
 }
 
 h1
