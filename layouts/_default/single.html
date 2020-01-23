@@ -1,0 +1,21 @@
+{{ define "content" }}
+	<header class="single">
+		<h3>
+			<a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+		</h3>
+	</header>
+
+	<main>
+		<article>
+			<header>
+				<h1 class="title">{{ .Title }}</h1>
+				<small class="info"><span class="date">{{ dateFormat "January 2, 2006" .Date }}</span>{{ if .Draft }}<span class="draft">DRAFT</span>{{ end }}</small>
+			</header>
+
+			<div class="markdown">
+				{{ .Content }}
+			</div>
+		</article>
+
+	</main>
+{{ end }}

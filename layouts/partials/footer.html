@@ -1,0 +1,18 @@
+<footer>
+	<nav class="social">
+    {{- range $index, $key := .Site.Params.Social -}}
+    {{ if ne $index 0 }}&nbsp;•&nbsp;{{ end }}<a href="{{ $key.url }}" title="{{ $key.name }}">{{ $key.name }}</a>
+    {{- end -}}
+  </nav>
+  <nav class="rss">
+		{{- with .Site.GetPage "/" }}
+			{{- with .OutputFormats.Get "rss" }}
+				<a href="{{ .Permalink | safeHTML }}">RSS</a>
+			{{- end }}
+		{{- end }}
+  </nav>
+
+	{{ if not .Site.IsServer }}
+	  {{ template "_internal/google_analytics_async.html" . }}
+	{{ end }}
+</footer>

@@ -1,0 +1,34 @@
+{{ define "content" }}
+	<header class="index">
+		<img src="{{ .Site.BaseURL }}avatar.jpg" alt="Photo" />
+		<h1>{{ .Site.Title }}</h1>
+	</header>
+
+	<main>
+		{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+		{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
+		{{ range $paginator.Pages }}
+		<article>
+			<header>
+				<h3>
+					<a href="{{ .RelPermalink }}">{{.Title}}</a>
+				</h3>
+				<small class="info"><span class="date">{{ dateFormat "January 2, 2006" .Date }}</span>{{ if .Draft }}<span class="draft">DRAFT</span>{{ end }}</small>
+			</header>
+			<section>
+				<p>
+					{{ if isset .Params "description" }}
+					{{ .Description }}
+					{{ else if gt (len .RawContent) 120 }}
+					{{ slicestr .RawContent 0 120 }}...
+					{{ else }}
+					{{ .RawContent }}
+					{{ end }}
+				</p>
+			</section>
+		</article>
+		{{ end }}		
+	</main>
+	{{ partial "paginator.html" . }}
+
+{{ end }}
